@@ -3,6 +3,6 @@ export declare class GoogleSheet {
     constructor(script_url: string);
     get(params: {
         action: string;
-    }): Promise<{}>;
+    }): Promise<string>;
 }
 //# sourceMappingURL=index.d.ts.map

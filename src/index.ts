@@ -4,14 +4,18 @@ export class GoogleSheet {
     constructor(script_url: string) {
         this.script_url = script_url;
     }
-    async get(params: {action: string}) {
+    get(params: {action: string}): Promise<string> {
         return new Promise((resolve, reject) => {
             let {script_url} = this;
             let {action} = params;
             let url = `${script_url}?action=${action}`
             Request.get(url, {}, (err, data) => {
-                console.log(data.body);
-                err ? reject(err) : resolve(data.body);
+                if(err) {
+                    reject(err);
+                }
+                else {
+                    resolve('' + data.body);
+                }
             });
         })
     }

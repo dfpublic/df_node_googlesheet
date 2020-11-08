@@ -1,6 +1,6 @@
 {
   "name": "df_node_googlesheet",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -10,9 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/request": "^2.48.1",
     "request": "^2.88.0"
   },
-  "devDependencies": {
-    "@types/request": "^2.48.1"
-  }
+  "devDependencies": {}
 }
