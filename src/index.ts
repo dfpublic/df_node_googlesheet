@@ -1,22 +1,13 @@
-import * as Request from 'request';
+import Axios from 'axios';
 export class GoogleSheet {
-    public script_url: string;
-    constructor(script_url: string) {
-        this.script_url = script_url;
-    }
-    get(params: {action: string}): Promise<string> {
-        return new Promise((resolve, reject) => {
-            let {script_url} = this;
-            let {action} = params;
-            let url = `${script_url}?action=${action}`
-            Request.get(url, {}, (err, data) => {
-                if(err) {
-                    reject(err);
-                }
-                else {
-                    resolve('' + data.body);
-                }
-            });
-        })
-    }
+  public script_url: string;
+  constructor(script_url: string) {
+    this.script_url = script_url;
+  }
+  async get(params: { action: string }): Promise<string> {
+    let { script_url } = this;
+    let { action } = params;
+    let res = await Axios.get(script_url, { params: { action } });
+    return res.data;
+  }
 }
