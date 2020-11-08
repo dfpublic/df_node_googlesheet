@@ -56,7 +56,7 @@ var GoogleSheet = /** @class */ (function () {
                         return [4 /*yield*/, axios_1.default.get(script_url, { params: { action: action } })];
                     case 1:
                         res = _a.sent();
-                        return [2 /*return*/, res.data];
+                        return [2 /*return*/, JSON.stringify(res.data)];
                 }
             });
         });

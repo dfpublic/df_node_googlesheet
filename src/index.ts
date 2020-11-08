@@ -8,6 +8,6 @@ export class GoogleSheet {
     let { script_url } = this;
     let { action } = params;
     let res = await Axios.get(script_url, { params: { action } });
-    return res.data;
+    return JSON.stringify(res.data);
   }
 }
